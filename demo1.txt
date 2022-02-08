@@ -1,0 +1,106 @@
+DERS NOTLARI
+
+
+-> go küçük harf büyük harf duyarlı bi dilidir. func büyük ile başlarsa bu func Public eğerr küçük ile başlamışise bu func Private'dır.
+
+fmt{
+-- Sprintf -> değer dönüdürmeye yarıyor
+len() --> fonk. length dir
+
+Silece:
+->javadaki araylist gibi
+->yeni eleman eklerken daha iyi olduğu için dizler yerine bu kullanılması daha mantıklı
+* isimler:=make([]string,3) -> böyle parametre oluşturulur
+*isimler=append(isimler,"Büşra") eğer dizinin kapasitesini aşıyorsa böyle yeni bi değer eklene bilir.
+
+->copy(sehirlerKopya,sehirler) : sehirler dizisini sehirlerKopya ya kopyalanıyor .Ama sehirlere eleman eklenirse sehirlerKopya ya eklenmez
+
+-> map : map ler genelde türkçe ing çeviri için kullanılır.
+sozluk:=map[string]string 
+şeklinde tanımlanır.
+
+-> for_range: for range c# daki foreach a benzer dizilerdeki değerleri dönmeye yarar.
+
+->struct yapısı :
+structlar da fonk da yazılabilir
+struc metot tanımı şöyle:
+
+typof customer struct{
+  name string
+  lastName string
+}
+
+func (c customer) save(){
+  fmt.Println("Eklendi :",c.name)
+}
+
+->go da iki tane şeyi aynı anda okutma imkanın var. şöyle yazılır:
+
+go goroutines.CiftSayilar()
+go goroutines.TekSayilar()
+
+ikisinide alt alta okumaktan ziyade aynı aynda çalıştırıyor.
+
+-> channellerin önemi mesela  iki işlemi toplama istiyor kullanıcı birinin hesaplaması uzun diğerinin kısa süreceğinden böylelikle ikiside aynı ayna çalışmaya başlıyor ve hem veri kaybını hem de bir iş yapışırken başka işde yapılacağından hız kaybınında önüne geçiyor
+
+-> interfacelerde:
+tanımlarken dönecek tipinide vermeyi unutma yanii söyle:
+
+type CreditCalculator interface{
+    Calculate() float64
+}
+bunu gibi
+
+-> defer:
+defer bir fonk illaki çalışması gerekiyorsa yazılır. MEsela bir if'in içine girip orda return değer döndürürse o fonk direk bittip başka bir değer okumadığı için ve bizim de daha yapacağımız işlemler varsa onu kullnmak için işe yarar. Ve garanti çalışması için fon en başında yazılır. yazılış tipide şöyledir:
+
+defer A()
+
+gibii
+
+-> defer structlarda da kullanılabiliyor. Şu ayrıntı var  eğer bir değerin son halini istiyorsanız defer i sona koyulmalı
+
+->dosya okuma:
+doysa okumada eğer bi klasörün altında okumak istediyip main de func çalıştırırsanız hata alırsınız.Çünkü main ile aynı yerde olması gerekiyor.
+
+-> String Fonk
+
+-strings.Count(isim,"n"):Bir stringin içinde o harften kaç tane olduğunu döndürüyor.İlkine aratacağın string'i ikincisine aratacağın kelimeyi."Case sensitive" Yani büyük-küçük harf duyarlı.
+
+-strings.Contains(isim,"n"): Aradığın kelime string ifade de var mı yok mu dödürür.yani  true-false döner.
+
+-strings.Index(isim,"n"): Aranan kelimenin string içade de kaçıncı sırada olduğunu döndürür.Ama ilk göründüğü yerden başka bir yerde tekrardan var ise onu değil en baştakini döndürür.Eğer bulamazsa -1 döndürür.
+
+-strings.ToLower(isim) : metni Küçük harfe çevir
+
+-strings.ToUpper(isim) : metni Büyük harfe çevir
+
+****************************
+
+-sitrings.HasPrefix(isim,"Ta"):
+isim'in Başı Ta diye mi başlıyor onu soruyor.true-false döner.Gerçek hayatta ismin öününde bir ön ek içerip içermediğine bakılır
+
+-sitrings.HasSuffix(isim, "en"): isim'in sonu en ile bitiyor mu onu soruyor.true-false döner.
+
+- strings.Join(harfler, "*"): string dizileri bir araya getiriyor.İkinci eklediğimiz değer de aralarına ne koyulacaksa onu veriliyor. ve bu artık yeni bi string oluyor.
+
+-strings.Replace(sonuc, "*", "+", -1):
+sonuc string'inde * lar yerine + koy demek oluyor.-1 yerine 2 filan verilseydi gördüğün 2 tanesini değiştir demekti.
+-1 ise gördüğün hepsini değiştir demek.Bu gerçek hayatta banklardaki mesela ibanlardaki aralarda - işareti koymak istemiyorlar o zaman bu methodu kullanıyorlar.
+
+-strings.Split(sonuc, ""): sonuc stringini *'a göre ayırmaya yarıyor. ve ayırdıkları her biri dizinin elemanlarına dönüyor.
+eğer koyulan ayraç bulunmazsa yine tek bir array oluyor
+
+-strings.Repeat(sonuc, 5): sonuc stringini 5 defa yan yana yazdır demek.buda yeni bi string oluyor.
+
+-------------------------------
+
+->json 
+
+- https://github.com/typicode/json-server : json server ile her şey burada var
+
+
+-npm install -g json-server :
+json server ı yüklüyor ama ondan önce node.js kurmak gerekiyor.
+
+-json-server --watch db.json :  datayı ayağa kaldırmaya yarıyor
